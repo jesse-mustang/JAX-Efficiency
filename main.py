@@ -7,6 +7,8 @@
 # 2) fill out form
 # 3) press start
 
+#TESTING
+
 import pyautogui
 import os
 import time
