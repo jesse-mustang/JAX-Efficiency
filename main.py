@@ -2,7 +2,7 @@
 # Collaborator: Polly Zou
 # code written on computer with resolution of 1920 x 1080 and Google Chrome with bookmark bar showing
 
-# require pip install pandas, tkinter, xlrd, pyautogui, opencv_python     => JH-I could not install tkinter. What is it for?
+# require pip install pandas, tkinter, xlrd, pyautogui, opencv_python
 # locateCenter function require pixel perfect image, opencv_python allows for "blur"
 # 1) run code
 # 2) fill out form

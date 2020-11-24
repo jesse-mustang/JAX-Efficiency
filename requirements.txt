@@ -1,4 +1,5 @@
-pandas
-xlrd
-pyautogui
-opencv_python
+pandas-1.1.4
+numpy-1.19.4
+xlrd-1.2.0
+pyautogui-0.9.52
+opencv_python-4.4.0.46
