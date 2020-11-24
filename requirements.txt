@@ -1,0 +1,4 @@
+pandas
+xlrd
+pyautogui
+opencv_python
