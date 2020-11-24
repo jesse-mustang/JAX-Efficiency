@@ -2,7 +2,6 @@
 # Collaborator: Polly Zou
 # code written on computer with resolution of 1920 x 1080 and Google Chrome with bookmark bar showing
 
-# require pip install pandas, tkinter, xlrd, pyautogui, opencv_python
 # locateCenter function require pixel perfect image, opencv_python allows for "blur"
 # 1) run code
 # 2) fill out form
@@ -58,7 +57,7 @@ def choose_factory():
     time.sleep(2)
 
 
-def choose_colourway():  # delete this #Doesn't hurt?
+def choose_colourway():
     print(e3.get())
     pyautogui.click(750, 375)
     pyautogui.typewrite("%s\n" % (e3.get()))
@@ -123,11 +122,10 @@ def start():
     open_BOM()
     choose_factory()
     choose_colourway()
-    click_update()
-    click_wide()
-    # For now there's gap in capability here, once widgoods has been opened the program isn't able to
+    # click_update()
+    # click_wide()
     # scroll and seek for all relevant sizes for now so user needs to prep the BOM page per pop-up msg for now
-    upload_file()
+    # upload_file()
     #save_checkin() #disabled for live BOM testing
     print("Automation Over")
 
@@ -140,7 +138,7 @@ master.geometry("320x180")
 tk.Label(master, text="Gerber Model:").grid(row=0, padx=50, pady=5)
 tk.Label(master, text="Factory:").grid(row=1, padx=50, pady=5)
 tk.Label(master, text="Colour(# only):").grid(row=2, padx=50, pady=5)
-tk.Label(master, text="SKU").grid(row=3, padx=50, pady=5)
+tk.Label(master, text="Product:").grid(row=3, padx=50, pady=5)
 
 e1 = tk.Entry(master)
 e2 = tk.Entry(master)
