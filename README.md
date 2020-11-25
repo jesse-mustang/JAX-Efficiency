@@ -9,5 +9,4 @@ Interpreter: python 3.8
 Packages and versions: See requirements.txt
 
 Install Packages: 
-
-$$ pip install -r requirements.txt
+pip install -r requirements.txt
