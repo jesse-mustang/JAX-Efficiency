@@ -7,8 +7,6 @@
 # 2) fill out form
 # 3) press start
 
-#TESTING
-
 import pyautogui
 import os
 import time
@@ -24,6 +22,10 @@ pyautogui.failsafe = True  # if True, program will stop if mouse is dragged to t
 sc_width, sc_height = pyautogui.size()
 print('screen resolution:', sc_width, 'x', sc_height)
 
+# #For dev purpose only
+# time.sleep(3)
+# x1, y1 = pyautogui.position()
+# print(x1, y1)
 
 # define automated tasks
 def go_home():
@@ -44,26 +46,33 @@ def open_BOM():
     pyautogui.click(cord_specs)
     cord_materials = pyautogui.locateCenterOnScreen('materials.png', confidence=.75)
     pyautogui.click(cord_materials)
+    time.sleep(3)
+
+
+def select_pfolder():
+    print(e4.get())
+    pyautogui.click(826, 320)
+    pyautogui.click(826, 375)
     time.sleep(2)
 
 
 def choose_factory():
     print(e2.get())
-    pyautogui.click(826, 360)
+    pyautogui.click(826, 365)
     if e2.get() == 'BBY':
         pyautogui.typewrite('TDP Compliant Spec (001)\n')  # issue with these codes being different for each product
     elif e2.get() == 'JAX':
         pyautogui.typewrite('TDP Compliant Spec (002)\n')
     else:
-        messagebox.showerror("Factory Code Mismatch", "Please manually select factory right now before clicking ok")
+        messagebox.showerror("Factory Code Mismatch", "Please select manually")
     time.sleep(2)
 
 
 def choose_colourway():
     print(e3.get())
-    pyautogui.click(750, 375)
+    pyautogui.click(745, 390)
     pyautogui.typewrite("%s\n" % (e3.get()))
-    time.sleep(2)
+    messagebox.showinfo("Review", "Please check that the fields are chosen correctly, if not, fix as needed")
 
 
 def click_update():
@@ -98,12 +107,12 @@ def upload_file():
         size = df3.index[row_process]
         area = str(df3.at[size, 'TOTAL AREA'])
         fileloc = os.path.join(size + '.png')
-        location = pyautogui.locateCenterOnScreen(fileloc, confidence=.80)
-        # print(location)
+        location = pyautogui.locateCenterOnScreen(fileloc, confidence=.90)
+        #print(location)
         x, y = location
-        pyautogui.click(x + 120, y)
+        pyautogui.click(x + 130, y)
+        #print(area)
         pyautogui.typewrite(area)
-        time.sleep(1)
         row_process += 1
 
 
@@ -119,16 +128,17 @@ def save_checkin():
 # "start" event
 def start():
     print("Automation Initiated")
-    go_home()  # still an open question if this is needed...
+    # go_home()  # still an open question if this is needed...
     find_product()
     open_BOM()
-    choose_factory()
+    select_pfolder()
+    choose_factory() #This function may put the wrong factory if user enters in wrong loc info
     choose_colourway()
-    # click_update()
-    # click_wide()
-    # scroll and seek for all relevant sizes for now so user needs to prep the BOM page per pop-up msg for now
-    # upload_file()
-    #save_checkin() #disabled for live BOM testing
+    click_update()
+    click_wide()
+    #scroll and seek for all relevant sizes for now so user needs to prep the BOM page per pop-up msg for now
+    upload_file()
+    # save_checkin() #disable in-case of multiple item update
     print("Automation Over")
 
 
