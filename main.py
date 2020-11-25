@@ -1,11 +1,5 @@
-# Jesse Hudkins - BOM update
-# Collaborator: Polly Zou
 # code written on computer with resolution of 1920 x 1080 and Google Chrome with bookmark bar showing
-
 # locateCenter function require pixel perfect image, opencv_python allows for "blur"
-# 1) run code
-# 2) fill out form
-# 3) press start
 
 import pyautogui
 import os
