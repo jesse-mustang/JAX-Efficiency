@@ -129,7 +129,7 @@ def start():
     choose_factory() #This function may put the wrong factory if user enters in wrong loc info
     choose_colourway()
     click_update()
-    click_wide()
+    # click_wide()
     #scroll and seek for all relevant sizes for now so user needs to prep the BOM page per pop-up msg for now
     upload_file()
     # save_checkin() #disable in-case of multiple item update
