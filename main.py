@@ -1,6 +1,7 @@
 # Jesse Hudkins - BOM update
 # Collaborator: Polly Zou
 # code written on computer with resolution of 1920 x 1080 and Google Chrome with bookmark bar showing
+# # = ctrl + / = "turn a piece of code off"
 
 # locateCenter function require pixel perfect image, opencv_python allows for "blur"
 # 1) run code
@@ -94,7 +95,11 @@ def upload_file():
     ROOT = tk.Tk()
     ROOT.withdraw()
     # For now, always a file named "1" on the desktop
-    xls = pd.ExcelFile(r'1.xlsx') # JH-need to switch path back to desktop
+
+    ###########ERIC LOOK AT ME###################
+    xls = pd.ExcelFile(r'1.xlsx') # FILE LOCATION
+    #############################################
+
     # Trims data based on what's entered for Gerber model
     df1 = pd.read_excel(xls, usecols=[0, 1, 3], skiprows=4)
     df2 = df1.loc[df1['MODEL'] == e1.get()]
@@ -128,19 +133,17 @@ def save_checkin():
 # "start" event
 def start():
     print("Automation Initiated")
-    # go_home()  # still an open question if this is needed...
+    # go_home()  # still an open question if this is needed...probably not
     find_product()
     open_BOM()
     select_pfolder()
     choose_factory() #This function may put the wrong factory if user enters in wrong loc info
-    choose_colourway()
+    #choose_colourway()
     click_update()
     click_wide()
-    #scroll and seek for all relevant sizes for now so user needs to prep the BOM page per pop-up msg for now
-    upload_file()
-    # save_checkin() #disable in-case of multiple item update
+    upload_file() #upload file + scans it + fill in the BOM for quantities
+    #save_checkin()  #disable in-case of multiple item update
     print("Automation Over")
-
 
 # build button and entry interface
 master = tk.Tk()
