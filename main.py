@@ -28,7 +28,7 @@ print('screen resolution:', sc_width, 'x', sc_height)
 # x1, y1 = pyautogui.position()
 # print(x1, y1)
 
-# define automated tasks
+# define automated tasks 20210111 - update only includes upload_file functionality
 def go_home():
     cord_home = pyautogui.locateCenterOnScreen('home.png', confidence=.75)
     pyautogui.click(cord_home)
@@ -134,13 +134,13 @@ def save_checkin():
 def start():
     print("Automation Initiated")
     # go_home()  # still an open question if this is needed...probably not
-    find_product()
-    open_BOM()
-    select_pfolder()
-    choose_factory() #This function may put the wrong factory if user enters in wrong loc info
-    #choose_colourway()
-    click_update()
-    click_wide()
+    # find_product()
+    # open_BOM()
+    # select_pfolder()
+    # choose_factory() #This function may put the wrong factory if user enters in wrong loc info
+    # choose_colourway()
+    # click_update()
+    # click_wide()
     upload_file() #upload file + scans it + fill in the BOM for quantities
     #save_checkin()  #disable in-case of multiple item update
     print("Automation Over")
@@ -148,22 +148,22 @@ def start():
 # build button and entry interface
 master = tk.Tk()
 master.title("BOM update")
-master.geometry("320x180")
+master.geometry("320x75") # 4 buttons ==> 320x180
 
 tk.Label(master, text="Gerber Model:").grid(row=0, padx=50, pady=5)
-tk.Label(master, text="Factory:").grid(row=1, padx=50, pady=5)
-tk.Label(master, text="Colour(# only):").grid(row=2, padx=50, pady=5)
-tk.Label(master, text="Product:").grid(row=3, padx=50, pady=5)
+# tk.Label(master, text="Factory:").grid(row=1, padx=50, pady=5)
+# tk.Label(master, text="Colour(# only):").grid(row=2, padx=50, pady=5)
+# tk.Label(master, text="Product:").grid(row=3, padx=50, pady=5)
 
 e1 = tk.Entry(master)
-e2 = tk.Entry(master)
-e3 = tk.Entry(master)
-e4 = tk.Entry(master)
+# e2 = tk.Entry(master)
+# e3 = tk.Entry(master)
+# e4 = tk.Entry(master)
 
 e1.grid(row=0, column=1)
-e2.grid(row=1, column=1)
-e3.grid(row=2, column=1)
-e4.grid(row=3, column=1)
+# e2.grid(row=1, column=1)
+# e3.grid(row=2, column=1)
+# e4.grid(row=3, column=1)
 
 tk.Button(master, text='Quit', command=master.quit).grid(row=4, column=0, sticky=tk.W, padx=10, pady=10)
 tk.Button(master, text='Start', command=start).grid(row=4, column=1, sticky=tk.W, pady=10)
